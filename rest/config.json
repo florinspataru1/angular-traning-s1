@@ -1,0 +1,66 @@
+{
+  "note": "This is a sample config file. You should change the mockDirectory to a more reasonable path.",
+  "mockDirectory": "C:\\Users\\User\\projects\\training\\rest\\samplemocks",
+  "staticDirectory": "C:\\Users\\User\\projects\\training\\rest\\samplemocks",
+  "staticPath": "C:\\Users\\User\\projects\\training\\rest\\samplemocks",
+  "quiet": false,
+  "port": "7878",
+  "latency": 50,
+  "logRequestHeaders": false,
+  "webServices": {
+    "first": {
+      "mockFile": "foo.json",
+      "latency": 3000,
+      "verbs": ["get", "post"],
+      "responses": {
+        "get": {
+          "mockFile": "king.json"
+        },
+        "post": {
+          "mockFile": "ace.json"
+        }
+      }
+    },
+    "second": {
+      "verbs": ["get", "post"],
+      "responses": {
+        "delete": {"httpStatus": 204},
+        "get": {
+          "mockFile": "config-api.json"
+        }
+      }
+    },
+    "nested/ace": {
+      "mockFile": "ace.json",
+      "verbs": ["post", "get"],
+      "switch": "customerId"
+    },
+	"nested/ace2": {
+      "mockFile": "ace.json",
+      "verbs": ["post", "get"],
+      "switch": ["customerId","multitest"]
+    },
+    "var/:id/:color": {
+      "mockFile": "xml/queen.xml",
+      "verbs": ["all"],
+      "switch": ["id", "color"]
+    },
+    "login": {
+      "verbs": ["post"],
+      "switch": ["userId", "password"],
+      "responses": {
+        "post": {"httpStatus": 401, "mockFile": "sorry.json"}
+      },
+      "switchResponses": {
+        "userIduser1passwordgood": {"httpStatus": 200, "mockFile": "king.json"},
+        "userIdadminpasswordgood": {"httpStatus": 200}
+      }
+    }, 
+      "template/:name/:number" :{
+        "mockFile": "templateSample.json",
+        "enableTemplate": true,  
+	"verbs":["get"], 
+	"contentType":"application/json"
+    }
+  }
+}

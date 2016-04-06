@@ -1,0 +1,59 @@
+<div class="topbar"><a ui-sref="state1" ui-sref-active="active-class">State 1</a>
+<a ui-sref="state2" ui-sref-active="active-class">State 2</a>
+<a ui-sref="state3" ui-sref-active="active-class">State 3</a></div>
+
+<br /><br />
+
+<!--{{main.testContent}}-->
+
+<!--{{main.creationDate}}-->
+
+<!--<br />
+<br />
+<div acme-navbar test-date="main.myCreationDate"></div>
+
+<br />
+<br />
+
+<br />
+<br />-->
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    <tr ng-repeat="row in main.listOfData | allowOnlyFlorin">
+        <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.salary}} => {{row.salary | divideAt2 | number : 2}}</td>
+        <td>{{row.email}}</td>
+        <td><a href="javascript:void(0)" ng-click="main.setNewData(row)">Edit</a> </td>
+    </tr>
+</table>
+
+<br /><br /><br />
+
+<form>
+    <label>Name</label>
+    <input name="name" ng-model="main.formData.name" />
+    <label>Email</label>
+    <input name="email" ng-model="main.formData.email" />
+    <label>Date</label>
+    <input type="text" my-test-directive="abcdef"  ng-model="main.formData.date" my-first-var="main.testContent" on-render="main.renderCalled(var1, var2)"  />
+    <button type="button" ng-click="main.sendDataToServer()">Save to server</button>
+    <button type="button" ng-click="main.setNewData()">Set new data</button>
+</form>
+
+
+<div ng-controller="MyLeftController" class="col-md-6 col-xs-12">
+    aaa<br />
+    Left side
+</div>
+<div ng-controller="RightController" class="col-md-6 col-xs-12">
+    aaa<br />
+    Right side
+</div>
