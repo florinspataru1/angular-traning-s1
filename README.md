@@ -7,7 +7,7 @@ This project aims to tech some AngularJS basic stuff:
 4. Service vs Factory vs Providers
 5. Promises and how to chain them
 
-For the recording please visit this URL: https://www.youtube.com/watch?v=pVSJZDUvNxI&feature=youtu.be
+For the recording please visit this URL: https://www.dropbox.com/s/73z4gamoduhouxh/session01.avi?dl=0
 
 ## Installation
 
